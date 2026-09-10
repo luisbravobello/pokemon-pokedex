@@ -1,0 +1,281 @@
+/* Pokédex Kanto — CSS que no se vuelve un caos.
+   1. Nombres por funcion
+   2. Variables en :root para no repetir colores
+   3. Mobile-first: 1 col -> 2 -> 3 con @media */
+
+@charset "UTF-8";
+
+/* :root = raíz, aquí viven las variables con var() */
+:root{
+  --fondo:#f6f7fb;
+  --tinta:#1c2430;
+  --muted:#667085;
+  --card:#ffffff;
+  --marca:#e3350d;
+  --borde:#e8eaf0;
+  --electrico:#f7c948;
+  --fuego:#ff7a45;
+  --agua:#4dabf7;
+  --planta:#51cf66;
+  --veneno:#b197fc;
+  --psiquico:#f783ac;
+}
+
+/* * = selector universal */
+*{
+  box-sizing:border-box;
+  margin:0;
+}
+
+body{
+  font-family:system-ui, -apple-system, sans-serif;
+  background:var(--fondo);
+  color:var(--tinta);
+  /* line-height = interlineado legible */
+  line-height:1.6;
+}
+
+/* .clase = lo más usado. max-width + margin auto = centrado */
+.wrap{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* position: sticky + z-index: queda encima al bajar */
+.site-header{
+  background:transparent;
+  border-bottom:none;
+  position:sticky;
+  top:12px;
+  z-index:10;
+}
+
+/* Píldora flotante: border-radius gigante + box-shadow suave */
+.pill-nav{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:100px;
+  padding:8px 8px 8px 18px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  max-width:100%;
+  overflow:hidden;
+}
+
+/* display:flex + justify-content + align-items + gap */
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:14px;
+  padding-bottom:14px;
+}
+
+.logo-link{ display:inline-flex; align-items:center; }
+
+/* object-fit:contain para que el logo no se deforme */
+.logo-img{
+  width:110px;
+  height:auto;
+  object-fit:contain;
+}
+
+/* <ul> sin viñetas, en fila. min-width:0 deja que flex encoja sin scroll */
+.main-nav{
+  display:flex;
+  flex:1;
+  min-width:0;
+}
+
+.main-nav ul{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:2px;
+  padding:0;
+  margin:0;
+  flex-wrap:nowrap;
+  min-width:0;
+}
+
+.main-nav a{
+  /* text-decoration:none quita subrayado de enlaces */
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:100px;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+
+/* :hover = cursor encima. Activo en negro como tu imagen */
+.main-nav a:hover{ color:var(--tinta); background:#f2f4f7; }
+.main-nav a.active{ color:var(--tinta); font-weight:700; }
+
+/* ::after = rayita debajo del activo */
+.main-nav a.active::after{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:4px;
+  height:2px;
+  border-radius:2px;
+  background:var(--tinta);
+}
+
+/* @media: en pantalla chica la píldora se hace tarjeta y el menú baja */
+@media (max-width:760px){
+  .pill-nav{
+    flex-wrap:wrap;
+    border-radius:24px;
+  }
+  .logo-img{ width:90px; }
+  .main-nav{ order:3; flex-basis:100%; }
+  .main-nav ul{ flex-wrap:wrap; }
+}
+
+/* clamp() = mínimo, ideal, máximo. H1 fluido */
+h1{ margin:28px 0 6px; font-size:clamp(28px,5vw,44px); }
+.sub{ color:var(--muted); margin-bottom:10px; }
+h2{ margin:28px 0 16px; font-size:22px; }
+
+/* display:grid mobile-first: 1 columna */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+/* border-radius + box-shadow + border */
+.card{
+  background:var(--card);
+  border:1px solid var(--borde);
+  border-radius:16px;
+  padding:18px;
+  border-top:6px solid var(--borde);
+}
+
+.card figure{ text-align:center; }
+
+/* object-fit:contain + aspect-ratio 1/1 */
+.card img{
+  width:140px;
+  height:140px;
+  object-fit:contain;
+  aspect-ratio:1/1;
+}
+
+.card figcaption{
+  font-family:monospace;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.card h3{ margin:8px 0; font-size:19px; }
+.card p{ color:var(--muted); font-size:14.5px; }
+
+/* Borde por tipo — nombre por función, no por color */
+.tipo-electrico{ border-top-color:var(--electrico); }
+.tipo-fuego{ border-top-color:var(--fuego); }
+.tipo-agua{ border-top-color:var(--agua); }
+.tipo-planta{ border-top-color:var(--planta); }
+.tipo-psiquico{ border-top-color:var(--psiquico); }
+
+/* text-transform:uppercase + list-style:none */
+.tipos{
+  list-style:none;
+  display:flex;
+  gap:8px;
+  padding:0;
+  margin-bottom:10px;
+}
+
+.tag{
+  font-size:12.5px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  padding:4px 12px;
+  border-radius:100px;
+  color:#222;
+}
+
+.tag.electrico{ background:var(--electrico); }
+.tag.fuego{ background:var(--fuego); color:#fff; }
+.tag.agua{ background:var(--agua); color:#fff; }
+.tag.planta{ background:var(--planta); color:#fff; }
+.tag.veneno{ background:var(--veneno); color:#fff; }
+.tag.psiquico{ background:var(--psiquico); color:#fff; }
+
+.stats{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:4px 12px;
+  margin-top:12px;
+  background:var(--fondo);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:13.5px;
+}
+
+.stats dt{ color:var(--muted); }
+.stats dd{ font-weight:700; text-align:right; }
+
+/* rgba() para sombra suave */
+.destacado{
+  box-shadow:0 12px 30px -12px rgba(0,0,0,.25);
+}
+
+.tip-box{
+  background:#fff;
+  border:1px solid var(--borde);
+  border-radius:14px;
+  padding:20px;
+}
+
+.tip-box ul{ padding-left:18px; color:var(--muted); }
+.tip-box li{ margin-bottom:6px; }
+
+/* ::marker = viñeta de la lista */
+.tip-box li::marker{ color:var(--marca); }
+.tip-box strong{ color:var(--tinta); }
+
+.site-footer{
+  margin-top:36px;
+  padding:22px 0;
+  border-top:1px solid var(--borde);
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+/* ::selection = texto que el usuario selecciona */
+::selection{
+  background:var(--marca);
+  color:#fff;
+}
+
+/* @media = responsive. Primero teléfono, luego se amplía */
+@media (min-width:600px){
+  .grid{ grid-template-columns:1fr 1fr; }
+}
+
+@media (min-width:900px){
+  .grid{ grid-template-columns:1fr 1fr 1fr; }
+  .card{
+    /* transition .3s en s = animación suave */
+    transition:transform .3s;
+  }
+  .card:hover{
+    /* transform: mover sin afectar layout */
+    transform:translateY(-4px);
+  }
+}

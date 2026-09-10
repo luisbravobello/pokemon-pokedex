@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- SEO desde el head: charset + viewport + título (~60) + descripción (~155) -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokédex Kanto · 5 Pokémon iniciales</title>
+  <meta name="description" content="Pokédex Kanto con 5 Pokémon: Pikachu, Charmander, Squirtle, Bulbasaur y Mewtwo. HTML  y CSS.">
+  
+  <meta property="description" content="Pikachu, Charmander, Squirtle, Bulbasaur y Mewtwo con HTML semántico · CSS">
+  
+  
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- <header>: encabezado: nav píldora flotante con logo + enlaces -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="pill-nav">
+        <a href="#" class="logo-link" aria-label="Pokédex Kanto - inicio">
+          <img src="img/logo-pokedex.png" alt="Logo Pokédex Kanto en amarillo y azul estilo Pokémon" class="logo-img" width="220" height="80">
+        </a>
+        <!-- <nav> + <ul> + <li>: navegación como lista, no suelta -->
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul>
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#pokedex">Pokédex</a></li>
+            <li><a href="#tipos">Tipos</a></li>
+            <li><a href="#regiones">Regiones</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- <main>: contenido principal, uno por documento -->
+  <main class="wrap">
+    <!-- <hgroup>: título + subtítulo juntos. Un solo <h1> por página -->
+    <hgroup>
+      <h1>Pokedex de Kanto</h1>
+      <p class="sub">5 Pokémones.</p>
+    </hgroup>
+
+    <!-- <section>: sección temática con su encabezado -->
+    <section id="pokedex" aria-labelledby="titulo-pokedex">
+      <h2 id="titulo-pokedex">Explora los Pokémon</h2>
+
+      <div class="grid">
+        <!-- <article>: contenido autónomo, tiene sentido solo (tarjeta) -->
+        <article class="card tipo-electrico">
+          <!-- <figure> + <figcaption>: imagen con leyenda -->
+          <figure>
+            <!-- <img>: siempre con alt descriptivo (accesibilidad + SEO) -->
+            <img src="img/pikachu.png" alt="Pikachu, ratón amarillo que guarda electricidad en las mejillas" width="475" height="475">
+            <figcaption>#025</figcaption>
+          </figure>
+          <h3>Pikachu</h3>
+          <!-- <ul> + <li>: lista sin orden para tipos -->
+          <ul class="tipos">
+            <li class="tag electrico">Eléctrico</li>
+          </ul>
+          <!-- <p>: párrafo -->
+          <p>El más famoso. Guarda electricidad en sus mejillas y la suelta en ataques rápidos.</p>
+          <!-- <dl> <dt> <dd>: lista de definiciones término + descripción -->
+          <dl class="stats">
+            <dt>Ataque</dt><dd>55</dd>
+            <dt>Defensa</dt><dd>40</dd>
+          </dl>
+        </article>
+
+        <article class="card tipo-fuego">
+          <figure>
+            <img src="img/charmander.png" alt="Charmander, lagartija naranja con llama ardiendo en la cola" width="475" height="475">
+            <figcaption>#004</figcaption>
+          </figure>
+          <h3>Charmander</h3>
+          <ul class="tipos">
+            <li class="tag fuego">Fuego</li>
+          </ul>
+          <p>Su cola siempre arde. Si se apaga, se debilita. Ideal para empezar tu aventura.</p>
+          <dl class="stats">
+            <dt>Ataque</dt><dd>52</dd>
+            <dt>Defensa</dt><dd>43</dd>
+          </dl>
+        </article>
+
+        <article class="card tipo-agua">
+          <figure>
+            <img src="img/squirtle.png" alt="Squirtle, tortuga azul que dispara agua a presión" width="475" height="475">
+            <figcaption>#007</figcaption>
+          </figure>
+          <h3>Squirtle</h3>
+          <ul class="tipos">
+            <li class="tag agua">Agua</li>
+          </ul>
+          <p>Dispara agua a presión. Su caparazón lo protege y lo hace gran defensor.</p>
+          <dl class="stats">
+            <dt>Ataque</dt><dd>48</dd>
+            <dt>Defensa</dt><dd>65</dd>
+          </dl>
+        </article>
+
+        <article class="card tipo-planta">
+          <figure>
+            <img src="img/bulbasaur.png" alt="Bulbasaur, Pokémon verde con un bulbo en la espalda" width="475" height="475">
+            <figcaption>#001</figcaption>
+          </figure>
+          <h3>Bulbasaur</h3>
+          <ul class="tipos">
+            <li class="tag planta">Planta</li>
+            <li class="tag veneno">Veneno</li>
+          </ul>
+          <p>Lleva un bulbo que crece con él. Tranquilo de día, fuerte en batalla.</p>
+          <dl class="stats">
+            <dt>Ataque</dt><dd>49</dd>
+            <dt>Defensa</dt><dd>49</dd>
+          </dl>
+        </article>
+
+        <article class="card tipo-psiquico destacado">
+          <figure>
+            <img src="img/mewtwo.png" alt="Mewtwo, Pokémon psíquico morado creado en laboratorio" width="475" height="475">
+            <figcaption>#150</figcaption>
+          </figure>
+          <h3>Mewtwo</h3>
+          <ul class="tipos">
+            <li class="tag psiquico">Psíquico</li>
+          </ul>
+          <p>Creado en laboratorio. Poder psíquico brutal, el legendario de Kanto.</p>
+          <dl class="stats">
+            <dt>Ataque</dt><dd>110</dd>
+            <dt>Defensa</dt><dd>90</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section id="regiones" aria-labelledby="titulo-regiones">
+      <h2 id="titulo-regiones">Regiones</h2>
+      <div class="grid">
+        <article class="card tipo-agua">
+          <figure>
+            <img src="img/region-kanto.png" alt="Articuno, ave legendaria de hielo representante de Kanto" width="475" height="475">
+            <figcaption>Gen 1</figcaption>
+          </figure>
+          <h3>Kanto</h3>
+          <p>La original. 151 Pokémon, gimnasios clásicos y Mewtwo en Ciudad Celeste.</p>
+        </article>
+        <article class="card tipo-planta">
+          <figure>
+            <img src="img/region-johto.png" alt="Lugia, guardián de los mares representante de Johto" width="475" height="475">
+            <figcaption>Gen 2</figcaption>
+          </figure>
+          <h3>Johto</h3>
+          <p>Al oeste de Kanto. 100 nuevos Pokémon, día y noche, y Lugia en Islas Remolino.</p>
+        </article>
+        <article class="card tipo-fuego">
+          <figure>
+            <img src="img/region-hoenn.png" alt="Kyogre, ballena legendaria de agua representante de Hoenn" width="475" height="475">
+            <figcaption>Gen 3</figcaption>
+          </figure>
+          <h3>Hoenn</h3>
+          <p>Tierra y mar. Groudon vs Kyogre, concursos y el Frente Batalla.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="tipos" aria-labelledby="titulo-tipos">
+      <h2 id="titulo-tipos">Guía rápida de tipos</h2>
+      <!-- <aside>: contenido lateral relacionado -->
+      <aside class="tip-box">
+        <h3>Ventajas que debes saber</h3>
+        <ul>
+          <!-- <strong>: importancia, no solo negrita visual -->
+          <li><strong>Agua</strong> apaga a <strong>Fuego</strong></li>
+          <li><strong>Fuego</strong> quema a <strong>Planta</strong></li>
+          <li><strong>Eléctrico</strong> frena a <strong>Agua</strong></li>
+          <li><strong>Psíquico</strong> domina a <strong>Veneno</strong></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <!-- <footer>: pie: créditos + contacto -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Hecho por Luis con HTML · CSS · UCE</p>
+      <!-- <address>: datos de contacto -->
+      <address>Bávaro, Punta Cana</address>
+    </div>
+  </footer>
+
+</body>
+</html>
