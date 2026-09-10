@@ -26,8 +26,8 @@ pokemon-pokedex/
 
 ## Tecnologías
 
-- HTML5 semántico (header, nav, main, section, article, figure, footer)
-- CSS3 (variables, flex, grid, mobile-first)
+- HTML5 
+- CSS3 
 - Imágenes locales PNG
 
 Hecho por Luis · UCE · Bávaro, Punta Cana
