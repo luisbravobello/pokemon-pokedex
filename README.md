@@ -1,4 +1,4 @@
-# Pokédex Kanto
+# Pokédex 
 
 Mini página con 5 Pokémon de Kanto + sección de Regiones. Hecha con HTML semántico y CSS aparte, sin JavaScript.
 
